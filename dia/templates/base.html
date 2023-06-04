@@ -1,0 +1,62 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title>Django Tailwind</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{% tailwind_css %}
+	</head>
+
+	<body class="bg-[url('earth.jpg')] bg-cover flex flex-col items-center p-20">
+		<div class="flex flex-col items-center">
+		  <h1 class="text-[#FAE4B5] text-6xl tracking-widest">
+			Breast Cancer Classification
+		  </h1>
+		  <h2 class="text-white text-3xl mt-2">
+			made using <span class="text-4xl">Machine Learning</span>
+		  </h2>
+		</div>
+		<div class="items-center flex flex-col my-[10vw]" id="checkStatus">
+		  <p class="text-white text-2xl">Check your status</p>
+		  <button
+			class="bg-[#FAE4B5] text-black py-2 px-8 text-xl rounded font-bold flex justify-center items-center mt-2" onclick="tryIt()"
+		  >
+			Try it
+		  </button>
+		</div>
+		<!-- Form for taking the data to test  -->
+		<div class="mt-10 hidden" id="form">
+		  <form action="submit" class="bg-[#D9D9D9] grid rounded w-[25vw] p-5">
+			<label for="for"> Name </label>
+			<input type="text" class="input_field" />
+			<label for="for"> Age </label>
+			<input type="number" class="input_field" />
+			<label for="gender"> Gender </label>
+			<div class="input-field">
+			  <input type="radio" name="gender" id="gender" class="scale-125"> Male</input>
+			  <input type="radio" name="gender" id="gender" class="scale-125"> Female</input>
+			</div>
+			<label for="for"> Diabetes pedigree function </label>
+			<input type="number" class="input_field">
+			<label for="for"> BMI </label>
+			<input type="number" class="input_field">
+			<label for="for"> Insulin </label>
+			<input type="number" class="input_field">
+			<label for="for"> Skin thickness </label>
+			<input type="number" class="input_field">
+			<label for="for"> Blood pressure </label>
+			<input type="number" class="input_field">
+			<label for="for"> Glucose </label>
+			<input type="number" class="input_field">
+			<div class="grid">
+				<label for="for"> Pregnency </label>
+				<input type="number" class="input_field">
+			</div>
+			<button id="submit" class="bg-[#FAE4B5] text-black py-2 px-8 text-xl rounded font-bold flex justify-center items-center mt-2 border-[1px] border-black">Submit</button>
+		  </form>
+		</div>
+		<script src="index.js"></script>
+</body>
+</html>

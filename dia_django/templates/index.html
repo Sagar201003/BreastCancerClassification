@@ -1,0 +1,124 @@
+{%load static%}
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breast Cancer Classifier using Machine Learning</title>
+    {% tailwind_css %}
+    <style>
+      .form-group {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    
+      .form-group label {
+        width: 50%;
+        box-sizing: border-box;
+        padding: 0.5rem;
+      }
+    
+      .form-group input {
+        width: 50%;
+        box-sizing: border-box;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body class="bg-cover flex flex-col items-center p-20" style="background-image: url('static/img/Leaves.jpg');">
+    <div class="flex flex-col items-center">
+      <h1 class="text-[#FAE4B5] text-6xl tracking-widest">
+        Breast Cancer Classifier
+      </h1>
+      <h2 class="text-white text-3xl mt-2">
+        made using <span class="text-4xl">Machine Learning</span>
+      </h2>
+    </div>
+    <div class="items-center flex flex-col my-[10vw]" id="checkStatus">
+      <p class="text-white text-2xl">Check your status</p>
+      <button
+        class="bg-[#FAE4B5] text-black py-2 px-8 text-xl rounded font-bold flex justify-center items-center mt-2" onclick="tryIt()"
+      >
+        Try it
+      </button>
+    </div>
+    <!-- Form for taking the data to test  -->
+    
+    <div class="mt-10 hidden" id="form">
+        <form action="/predict" class="bg-[#D9D9D9] grid rounded w-[25vw] p-5" method="post">
+          {% csrf_token %}
+          <label for="for"> Name </label>
+          <input type="text" class="input_field" name="Name"/>
+          <label for="for"> id </label>
+          <input type="text" class="input_field" name="id"/>
+          <label for="for"> radius_mean </label>
+          <input type="text" class="input_field" name="radius_mean"/>
+          <label for="for"> texture_mean </label>
+          <input type="text" class="input_field" name="texture_mean"/>
+          <label for="for"> perimeter_mean </label>
+          <input type="text" class="input_field" name="perimeter_mean"/>
+          <label for="for"> area_mean </label>
+          <input type="text" class="input_field" name="area_mean"/>
+          <label for="for"> smoothness_mean</label>
+          <input type="text" class="input_field" name="smoothness_mean"/>
+          <label for="for">compactness_mean</label>
+          <input type="text" class="input_field" name="compactness_mean"/>
+          <label for="for"> concavity_mean</label>
+          <input type="text" class="input_field" name="concavity_mean"/>
+          <label for="for"> concave points_mean</label>
+          <input type="text" class="input_field" name="concave points_mean"/>
+          <label for="for"> symmetry_mean</label>
+          <input type="text" class="input_field" name="symmetry_mean"/>
+          <label for="for"> fractal_dimension_mean</label>
+          <input type="text" class="input_field" name="fractal_dimension_mean"/>
+          <label for="for"> radius_se</label>
+          <input type="text" class="input_field" name="radius_se"/>
+          <label for="for"> texture_se</label>
+          <input type="text" class="input_field" name="texture_se"/>
+          <label for="for"> perimeter_se</label>
+          <input type="text" class="input_field" name="perimeter_se"/>
+          <label for="for"> area_se</label>
+          <input type="text" class="input_field" name="area_se"/>
+          <label for="for"> smoothness_se</label>
+          <input type="text" class="input_field" name="smoothness_se"/>
+          <label for="for"> compactness_se</label>
+          <input type="text" class="input_field" name="compactness_se"/>
+          <label for="for"> concavity_se</label>
+          <input type="text" class="input_field" name="concavity_se"/>
+          <label for="for"> concave points_se</label>
+          <input type="text" class="input_field" name="concave points_se"/>
+          <label for="for"> symmetry_se</label>
+          <input type="text" class="input_field" name="symmetry_se"/>
+          <label for="for"> fractal_dimension_se</label>
+          <input type="text" class="input_field" name="fractal_dimension_se"/>
+          <label for="for"> radius_worst</label>
+          <input type="text" class="input_field" name="radius_worst"/>
+          <label for="for"> texture_worst</label>
+          <input type="text" class="input_field" name="texture_worst"/>
+          <label for="for"> perimeter_worst</label>
+          <input type="text" class="input_field" name="perimeter_worst"/>
+          <label for="for"> area_worst</label>
+          <input type="text" class="input_field" name="area_worst"/>
+          <label for="for"> smoothness_worst</label>
+          <input type="text" class="input_field" name="smoothness_worst"/>
+          <label for="for"> compactness_worst</label>
+          <input type="text" class="input_field" name="compactness_worst"/>
+          <label for="for"> concavity_worst</label>
+          <input type="text" class="input_field" name="concavity_worst"/>
+          <label for="for"> concave points_worst</label>
+          <input type="text" class="input_field" name="concave points_worst"/>
+          <label for="for"> symmetry_worst</label>
+          <input type="text" class="input_field" name="symmetry_worst"/>
+          <label for="for"> fractal_dimension_worst</label>
+          <input type="text" class="input_field" name="fractal_dimension_worst"/>
+          
+          <button type="submit" id="submit" class="bg-[#FAE4B5] text-black py-2 px-8 text-xl rounded font-bold flex justify-center items-center mt-2 border-[1px] border-black">Submit</button>
+        </form>
+      </div>
+    <script src="{% static 'index.js' %}"></script>
+  </body>
+</html>

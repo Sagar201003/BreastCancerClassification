@@ -1,0 +1,27 @@
+{%load static%}
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breast Cancer Classifier using Machine Learning</title>
+    {% tailwind_css %}
+  </head>
+  <body class="bg-cover flex flex-col items-center p-20" style="background-image: url('static/img/Earth.jpg');">    <div class="flex flex-col items-center">
+      <h1 class="text-[#FAE4B5] text-6xl tracking-widest">
+        Breast Cancer Classifier
+      </h1>
+      <h2 class="text-white text-3xl mt-2">
+        made using <span class="text-4xl">Machine Learning</span>
+      </h2>
+    </div>
+ 
+    <!-- Form for taking the data to test  -->
+    <div class="bg-red-500 w-[10vw] h-[30vh]  text-white p-4">
+        <h1 class="text-3xl">I'm so sorry to have to tell you this, but the results of your tests indicate that you have MALIGNANT breast cancer.</h1>
+    </div>
+      <a href="{% url 'view' %}"><button type="submit" id="submit" class="bg-[#FAE4B5] text-black py-2 px-8 text-xl rounded font-bold flex justify-center items-center mt-8 border-[1px] border-black">Try again</button></a>
+  </body>
+</html>
